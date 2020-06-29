@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using GarderobaStoreApi.Models;
+using GarderobaStoreApi.Repositories;
+using GarderobaStoreApi.Services;
 
 namespace GarderobaStoreApi
 {
@@ -27,9 +29,15 @@ namespace GarderobaStoreApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddScoped<ICategoriesRepository, CategoriesRepository>();
+            services.AddScoped<ICategoriesService, CategoriesService>();
+
             services.AddDbContext<StoreContext>(opt =>
                opt.UseInMemoryDatabase("GarderobaStore"));
             services.AddControllers();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using GarderobaStoreApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GarderobaStoreApi.Repositories
 {
-    public class GenericRepository : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly StoreContext _context; 
 

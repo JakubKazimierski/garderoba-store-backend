@@ -2,9 +2,10 @@
 
 namespace GarderobaStoreApi.Models
 {
+    public enum UserType { MANAGER, CONSUMER }
     public class User
     {
-        public enum UserType { MANAGER, CONSUMER }
+        
         [Key]
         public int Id { get; set; }
         public string Username { get; set; }
